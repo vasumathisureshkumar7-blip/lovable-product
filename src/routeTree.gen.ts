@@ -10,33 +10,416 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AnalyticsRouteImport } from './routes/analytics'
+import { Route as ContentRouteImport } from './routes/content'
+import { Route as FinanceRouteImport } from './routes/finance'
+import { Route as NotificationsRouteImport } from './routes/notifications'
+import { Route as PromotionsRouteImport } from './routes/promotions'
+import { Route as ReviewsRouteImport } from './routes/reviews'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as BookingsIndexRouteImport } from './routes/bookings.index'
+import { Route as BookingsIdRouteImport } from './routes/bookings.$id'
+import { Route as ComplaintsIndexRouteImport } from './routes/complaints.index'
+import { Route as ComplaintsIdRouteImport } from './routes/complaints.$id'
+import { Route as FinanceIndexRouteImport } from './routes/finance.index'
+import { Route as FinanceCommissionsRouteImport } from './routes/finance.commissions'
+import { Route as FinanceInvoicesRouteImport } from './routes/finance.invoices'
+import { Route as FinanceOrganizationEarningsRouteImport } from './routes/finance.organization-earnings'
+import { Route as FinancePaymentsRouteImport } from './routes/finance.payments'
+import { Route as FinanceProviderPayoutsRouteImport } from './routes/finance.provider-payouts'
+import { Route as FinanceRefundsRouteImport } from './routes/finance.refunds'
+import { Route as FinanceReportsRouteImport } from './routes/finance.reports'
+import { Route as FinanceSubscriptionsRouteImport } from './routes/finance.subscriptions'
+import { Route as FinanceTransactionsRouteImport } from './routes/finance.transactions'
+import { Route as OrganizationsIndexRouteImport } from './routes/organizations.index'
+import { Route as OrganizationsIdRouteImport } from './routes/organizations.$id'
+import { Route as PetParentsIndexRouteImport } from './routes/pet-parents.index'
+import { Route as PetParentsIdRouteImport } from './routes/pet-parents.$id'
+import { Route as ProvidersIndexRouteImport } from './routes/providers.index'
+import { Route as ProvidersIdRouteImport } from './routes/providers.$id'
+import { Route as VerificationIndexRouteImport } from './routes/verification.index'
+import { Route as VerificationIdRouteImport } from './routes/verification.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AnalyticsRoute = AnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContentRoute = ContentRouteImport.update({
+  id: '/content',
+  path: '/content',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FinanceRoute = FinanceRouteImport.update({
+  id: '/finance',
+  path: '/finance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NotificationsRoute = NotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PromotionsRoute = PromotionsRouteImport.update({
+  id: '/promotions',
+  path: '/promotions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReviewsRoute = ReviewsRouteImport.update({
+  id: '/reviews',
+  path: '/reviews',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookingsIndexRoute = BookingsIndexRouteImport.update({
+  id: '/bookings/',
+  path: '/bookings/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookingsIdRoute = BookingsIdRouteImport.update({
+  id: '/bookings/$id',
+  path: '/bookings/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComplaintsIndexRoute = ComplaintsIndexRouteImport.update({
+  id: '/complaints/',
+  path: '/complaints/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComplaintsIdRoute = ComplaintsIdRouteImport.update({
+  id: '/complaints/$id',
+  path: '/complaints/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FinanceIndexRoute = FinanceIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => FinanceRoute,
+} as any)
+const FinanceCommissionsRoute = FinanceCommissionsRouteImport.update({
+  id: '/commissions',
+  path: '/commissions',
+  getParentRoute: () => FinanceRoute,
+} as any)
+const FinanceInvoicesRoute = FinanceInvoicesRouteImport.update({
+  id: '/invoices',
+  path: '/invoices',
+  getParentRoute: () => FinanceRoute,
+} as any)
+const FinanceOrganizationEarningsRoute =
+  FinanceOrganizationEarningsRouteImport.update({
+    id: '/organization-earnings',
+    path: '/organization-earnings',
+    getParentRoute: () => FinanceRoute,
+  } as any)
+const FinancePaymentsRoute = FinancePaymentsRouteImport.update({
+  id: '/payments',
+  path: '/payments',
+  getParentRoute: () => FinanceRoute,
+} as any)
+const FinanceProviderPayoutsRoute = FinanceProviderPayoutsRouteImport.update({
+  id: '/provider-payouts',
+  path: '/provider-payouts',
+  getParentRoute: () => FinanceRoute,
+} as any)
+const FinanceRefundsRoute = FinanceRefundsRouteImport.update({
+  id: '/refunds',
+  path: '/refunds',
+  getParentRoute: () => FinanceRoute,
+} as any)
+const FinanceReportsRoute = FinanceReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => FinanceRoute,
+} as any)
+const FinanceSubscriptionsRoute = FinanceSubscriptionsRouteImport.update({
+  id: '/subscriptions',
+  path: '/subscriptions',
+  getParentRoute: () => FinanceRoute,
+} as any)
+const FinanceTransactionsRoute = FinanceTransactionsRouteImport.update({
+  id: '/transactions',
+  path: '/transactions',
+  getParentRoute: () => FinanceRoute,
+} as any)
+const OrganizationsIndexRoute = OrganizationsIndexRouteImport.update({
+  id: '/organizations/',
+  path: '/organizations/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OrganizationsIdRoute = OrganizationsIdRouteImport.update({
+  id: '/organizations/$id',
+  path: '/organizations/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PetParentsIndexRoute = PetParentsIndexRouteImport.update({
+  id: '/pet-parents/',
+  path: '/pet-parents/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PetParentsIdRoute = PetParentsIdRouteImport.update({
+  id: '/pet-parents/$id',
+  path: '/pet-parents/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProvidersIndexRoute = ProvidersIndexRouteImport.update({
+  id: '/providers/',
+  path: '/providers/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProvidersIdRoute = ProvidersIdRouteImport.update({
+  id: '/providers/$id',
+  path: '/providers/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VerificationIndexRoute = VerificationIndexRouteImport.update({
+  id: '/verification/',
+  path: '/verification/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VerificationIdRoute = VerificationIdRouteImport.update({
+  id: '/verification/$id',
+  path: '/verification/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/analytics': typeof AnalyticsRoute
+  '/content': typeof ContentRoute
+  '/finance': typeof FinanceRouteWithChildren
+  '/notifications': typeof NotificationsRoute
+  '/promotions': typeof PromotionsRoute
+  '/reviews': typeof ReviewsRoute
+  '/services': typeof ServicesRoute
+  '/settings': typeof SettingsRoute
+  '/bookings/$id': typeof BookingsIdRoute
+  '/complaints/$id': typeof ComplaintsIdRoute
+  '/finance/commissions': typeof FinanceCommissionsRoute
+  '/finance/invoices': typeof FinanceInvoicesRoute
+  '/finance/organization-earnings': typeof FinanceOrganizationEarningsRoute
+  '/finance/payments': typeof FinancePaymentsRoute
+  '/finance/provider-payouts': typeof FinanceProviderPayoutsRoute
+  '/finance/refunds': typeof FinanceRefundsRoute
+  '/finance/reports': typeof FinanceReportsRoute
+  '/finance/subscriptions': typeof FinanceSubscriptionsRoute
+  '/finance/transactions': typeof FinanceTransactionsRoute
+  '/organizations/$id': typeof OrganizationsIdRoute
+  '/pet-parents/$id': typeof PetParentsIdRoute
+  '/providers/$id': typeof ProvidersIdRoute
+  '/verification/$id': typeof VerificationIdRoute
+  '/bookings/': typeof BookingsIndexRoute
+  '/complaints/': typeof ComplaintsIndexRoute
+  '/finance/': typeof FinanceIndexRoute
+  '/organizations/': typeof OrganizationsIndexRoute
+  '/pet-parents/': typeof PetParentsIndexRoute
+  '/providers/': typeof ProvidersIndexRoute
+  '/verification/': typeof VerificationIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/analytics': typeof AnalyticsRoute
+  '/content': typeof ContentRoute
+  '/notifications': typeof NotificationsRoute
+  '/promotions': typeof PromotionsRoute
+  '/reviews': typeof ReviewsRoute
+  '/services': typeof ServicesRoute
+  '/settings': typeof SettingsRoute
+  '/bookings/$id': typeof BookingsIdRoute
+  '/complaints/$id': typeof ComplaintsIdRoute
+  '/finance/commissions': typeof FinanceCommissionsRoute
+  '/finance/invoices': typeof FinanceInvoicesRoute
+  '/finance/organization-earnings': typeof FinanceOrganizationEarningsRoute
+  '/finance/payments': typeof FinancePaymentsRoute
+  '/finance/provider-payouts': typeof FinanceProviderPayoutsRoute
+  '/finance/refunds': typeof FinanceRefundsRoute
+  '/finance/reports': typeof FinanceReportsRoute
+  '/finance/subscriptions': typeof FinanceSubscriptionsRoute
+  '/finance/transactions': typeof FinanceTransactionsRoute
+  '/organizations/$id': typeof OrganizationsIdRoute
+  '/pet-parents/$id': typeof PetParentsIdRoute
+  '/providers/$id': typeof ProvidersIdRoute
+  '/verification/$id': typeof VerificationIdRoute
+  '/bookings': typeof BookingsIndexRoute
+  '/complaints': typeof ComplaintsIndexRoute
+  '/finance': typeof FinanceIndexRoute
+  '/organizations': typeof OrganizationsIndexRoute
+  '/pet-parents': typeof PetParentsIndexRoute
+  '/providers': typeof ProvidersIndexRoute
+  '/verification': typeof VerificationIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/analytics': typeof AnalyticsRoute
+  '/content': typeof ContentRoute
+  '/finance': typeof FinanceRouteWithChildren
+  '/notifications': typeof NotificationsRoute
+  '/promotions': typeof PromotionsRoute
+  '/reviews': typeof ReviewsRoute
+  '/services': typeof ServicesRoute
+  '/settings': typeof SettingsRoute
+  '/bookings/$id': typeof BookingsIdRoute
+  '/complaints/$id': typeof ComplaintsIdRoute
+  '/finance/commissions': typeof FinanceCommissionsRoute
+  '/finance/invoices': typeof FinanceInvoicesRoute
+  '/finance/organization-earnings': typeof FinanceOrganizationEarningsRoute
+  '/finance/payments': typeof FinancePaymentsRoute
+  '/finance/provider-payouts': typeof FinanceProviderPayoutsRoute
+  '/finance/refunds': typeof FinanceRefundsRoute
+  '/finance/reports': typeof FinanceReportsRoute
+  '/finance/subscriptions': typeof FinanceSubscriptionsRoute
+  '/finance/transactions': typeof FinanceTransactionsRoute
+  '/organizations/$id': typeof OrganizationsIdRoute
+  '/pet-parents/$id': typeof PetParentsIdRoute
+  '/providers/$id': typeof ProvidersIdRoute
+  '/verification/$id': typeof VerificationIdRoute
+  '/bookings/': typeof BookingsIndexRoute
+  '/complaints/': typeof ComplaintsIndexRoute
+  '/finance/': typeof FinanceIndexRoute
+  '/organizations/': typeof OrganizationsIndexRoute
+  '/pet-parents/': typeof PetParentsIndexRoute
+  '/providers/': typeof ProvidersIndexRoute
+  '/verification/': typeof VerificationIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/analytics'
+    | '/content'
+    | '/finance'
+    | '/notifications'
+    | '/promotions'
+    | '/reviews'
+    | '/services'
+    | '/settings'
+    | '/bookings/$id'
+    | '/complaints/$id'
+    | '/finance/commissions'
+    | '/finance/invoices'
+    | '/finance/organization-earnings'
+    | '/finance/payments'
+    | '/finance/provider-payouts'
+    | '/finance/refunds'
+    | '/finance/reports'
+    | '/finance/subscriptions'
+    | '/finance/transactions'
+    | '/organizations/$id'
+    | '/pet-parents/$id'
+    | '/providers/$id'
+    | '/verification/$id'
+    | '/bookings/'
+    | '/complaints/'
+    | '/finance/'
+    | '/organizations/'
+    | '/pet-parents/'
+    | '/providers/'
+    | '/verification/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/analytics'
+    | '/content'
+    | '/notifications'
+    | '/promotions'
+    | '/reviews'
+    | '/services'
+    | '/settings'
+    | '/bookings/$id'
+    | '/complaints/$id'
+    | '/finance/commissions'
+    | '/finance/invoices'
+    | '/finance/organization-earnings'
+    | '/finance/payments'
+    | '/finance/provider-payouts'
+    | '/finance/refunds'
+    | '/finance/reports'
+    | '/finance/subscriptions'
+    | '/finance/transactions'
+    | '/organizations/$id'
+    | '/pet-parents/$id'
+    | '/providers/$id'
+    | '/verification/$id'
+    | '/bookings'
+    | '/complaints'
+    | '/finance'
+    | '/organizations'
+    | '/pet-parents'
+    | '/providers'
+    | '/verification'
+  id:
+    | '__root__'
+    | '/'
+    | '/analytics'
+    | '/content'
+    | '/finance'
+    | '/notifications'
+    | '/promotions'
+    | '/reviews'
+    | '/services'
+    | '/settings'
+    | '/bookings/$id'
+    | '/complaints/$id'
+    | '/finance/commissions'
+    | '/finance/invoices'
+    | '/finance/organization-earnings'
+    | '/finance/payments'
+    | '/finance/provider-payouts'
+    | '/finance/refunds'
+    | '/finance/reports'
+    | '/finance/subscriptions'
+    | '/finance/transactions'
+    | '/organizations/$id'
+    | '/pet-parents/$id'
+    | '/providers/$id'
+    | '/verification/$id'
+    | '/bookings/'
+    | '/complaints/'
+    | '/finance/'
+    | '/organizations/'
+    | '/pet-parents/'
+    | '/providers/'
+    | '/verification/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AnalyticsRoute: typeof AnalyticsRoute
+  ContentRoute: typeof ContentRoute
+  FinanceRoute: typeof FinanceRouteWithChildren
+  NotificationsRoute: typeof NotificationsRoute
+  PromotionsRoute: typeof PromotionsRoute
+  ReviewsRoute: typeof ReviewsRoute
+  ServicesRoute: typeof ServicesRoute
+  SettingsRoute: typeof SettingsRoute
+  BookingsIdRoute: typeof BookingsIdRoute
+  ComplaintsIdRoute: typeof ComplaintsIdRoute
+  OrganizationsIdRoute: typeof OrganizationsIdRoute
+  PetParentsIdRoute: typeof PetParentsIdRoute
+  ProvidersIdRoute: typeof ProvidersIdRoute
+  VerificationIdRoute: typeof VerificationIdRoute
+  BookingsIndexRoute: typeof BookingsIndexRoute
+  ComplaintsIndexRoute: typeof ComplaintsIndexRoute
+  OrganizationsIndexRoute: typeof OrganizationsIndexRoute
+  PetParentsIndexRoute: typeof PetParentsIndexRoute
+  ProvidersIndexRoute: typeof ProvidersIndexRoute
+  VerificationIndexRoute: typeof VerificationIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +431,270 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/analytics': {
+      id: '/analytics'
+      path: '/analytics'
+      fullPath: '/analytics'
+      preLoaderRoute: typeof AnalyticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/content': {
+      id: '/content'
+      path: '/content'
+      fullPath: '/content'
+      preLoaderRoute: typeof ContentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/finance': {
+      id: '/finance'
+      path: '/finance'
+      fullPath: '/finance'
+      preLoaderRoute: typeof FinanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/notifications': {
+      id: '/notifications'
+      path: '/notifications'
+      fullPath: '/notifications'
+      preLoaderRoute: typeof NotificationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/promotions': {
+      id: '/promotions'
+      path: '/promotions'
+      fullPath: '/promotions'
+      preLoaderRoute: typeof PromotionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reviews': {
+      id: '/reviews'
+      path: '/reviews'
+      fullPath: '/reviews'
+      preLoaderRoute: typeof ReviewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bookings/': {
+      id: '/bookings/'
+      path: '/bookings'
+      fullPath: '/bookings/'
+      preLoaderRoute: typeof BookingsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bookings/$id': {
+      id: '/bookings/$id'
+      path: '/bookings/$id'
+      fullPath: '/bookings/$id'
+      preLoaderRoute: typeof BookingsIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/complaints/': {
+      id: '/complaints/'
+      path: '/complaints'
+      fullPath: '/complaints/'
+      preLoaderRoute: typeof ComplaintsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/complaints/$id': {
+      id: '/complaints/$id'
+      path: '/complaints/$id'
+      fullPath: '/complaints/$id'
+      preLoaderRoute: typeof ComplaintsIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/finance/': {
+      id: '/finance/'
+      path: '/'
+      fullPath: '/finance/'
+      preLoaderRoute: typeof FinanceIndexRouteImport
+      parentRoute: typeof FinanceRoute
+    }
+    '/finance/commissions': {
+      id: '/finance/commissions'
+      path: '/commissions'
+      fullPath: '/finance/commissions'
+      preLoaderRoute: typeof FinanceCommissionsRouteImport
+      parentRoute: typeof FinanceRoute
+    }
+    '/finance/invoices': {
+      id: '/finance/invoices'
+      path: '/invoices'
+      fullPath: '/finance/invoices'
+      preLoaderRoute: typeof FinanceInvoicesRouteImport
+      parentRoute: typeof FinanceRoute
+    }
+    '/finance/organization-earnings': {
+      id: '/finance/organization-earnings'
+      path: '/organization-earnings'
+      fullPath: '/finance/organization-earnings'
+      preLoaderRoute: typeof FinanceOrganizationEarningsRouteImport
+      parentRoute: typeof FinanceRoute
+    }
+    '/finance/payments': {
+      id: '/finance/payments'
+      path: '/payments'
+      fullPath: '/finance/payments'
+      preLoaderRoute: typeof FinancePaymentsRouteImport
+      parentRoute: typeof FinanceRoute
+    }
+    '/finance/provider-payouts': {
+      id: '/finance/provider-payouts'
+      path: '/provider-payouts'
+      fullPath: '/finance/provider-payouts'
+      preLoaderRoute: typeof FinanceProviderPayoutsRouteImport
+      parentRoute: typeof FinanceRoute
+    }
+    '/finance/refunds': {
+      id: '/finance/refunds'
+      path: '/refunds'
+      fullPath: '/finance/refunds'
+      preLoaderRoute: typeof FinanceRefundsRouteImport
+      parentRoute: typeof FinanceRoute
+    }
+    '/finance/reports': {
+      id: '/finance/reports'
+      path: '/reports'
+      fullPath: '/finance/reports'
+      preLoaderRoute: typeof FinanceReportsRouteImport
+      parentRoute: typeof FinanceRoute
+    }
+    '/finance/subscriptions': {
+      id: '/finance/subscriptions'
+      path: '/subscriptions'
+      fullPath: '/finance/subscriptions'
+      preLoaderRoute: typeof FinanceSubscriptionsRouteImport
+      parentRoute: typeof FinanceRoute
+    }
+    '/finance/transactions': {
+      id: '/finance/transactions'
+      path: '/transactions'
+      fullPath: '/finance/transactions'
+      preLoaderRoute: typeof FinanceTransactionsRouteImport
+      parentRoute: typeof FinanceRoute
+    }
+    '/organizations/': {
+      id: '/organizations/'
+      path: '/organizations'
+      fullPath: '/organizations/'
+      preLoaderRoute: typeof OrganizationsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/organizations/$id': {
+      id: '/organizations/$id'
+      path: '/organizations/$id'
+      fullPath: '/organizations/$id'
+      preLoaderRoute: typeof OrganizationsIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pet-parents/': {
+      id: '/pet-parents/'
+      path: '/pet-parents'
+      fullPath: '/pet-parents/'
+      preLoaderRoute: typeof PetParentsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pet-parents/$id': {
+      id: '/pet-parents/$id'
+      path: '/pet-parents/$id'
+      fullPath: '/pet-parents/$id'
+      preLoaderRoute: typeof PetParentsIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/providers/': {
+      id: '/providers/'
+      path: '/providers'
+      fullPath: '/providers/'
+      preLoaderRoute: typeof ProvidersIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/providers/$id': {
+      id: '/providers/$id'
+      path: '/providers/$id'
+      fullPath: '/providers/$id'
+      preLoaderRoute: typeof ProvidersIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/verification/': {
+      id: '/verification/'
+      path: '/verification'
+      fullPath: '/verification/'
+      preLoaderRoute: typeof VerificationIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/verification/$id': {
+      id: '/verification/$id'
+      path: '/verification/$id'
+      fullPath: '/verification/$id'
+      preLoaderRoute: typeof VerificationIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
+interface FinanceRouteChildren {
+  FinanceCommissionsRoute: typeof FinanceCommissionsRoute
+  FinanceInvoicesRoute: typeof FinanceInvoicesRoute
+  FinanceOrganizationEarningsRoute: typeof FinanceOrganizationEarningsRoute
+  FinancePaymentsRoute: typeof FinancePaymentsRoute
+  FinanceProviderPayoutsRoute: typeof FinanceProviderPayoutsRoute
+  FinanceRefundsRoute: typeof FinanceRefundsRoute
+  FinanceReportsRoute: typeof FinanceReportsRoute
+  FinanceSubscriptionsRoute: typeof FinanceSubscriptionsRoute
+  FinanceTransactionsRoute: typeof FinanceTransactionsRoute
+  FinanceIndexRoute: typeof FinanceIndexRoute
+}
+
+const FinanceRouteChildren: FinanceRouteChildren = {
+  FinanceCommissionsRoute: FinanceCommissionsRoute,
+  FinanceInvoicesRoute: FinanceInvoicesRoute,
+  FinanceOrganizationEarningsRoute: FinanceOrganizationEarningsRoute,
+  FinancePaymentsRoute: FinancePaymentsRoute,
+  FinanceProviderPayoutsRoute: FinanceProviderPayoutsRoute,
+  FinanceRefundsRoute: FinanceRefundsRoute,
+  FinanceReportsRoute: FinanceReportsRoute,
+  FinanceSubscriptionsRoute: FinanceSubscriptionsRoute,
+  FinanceTransactionsRoute: FinanceTransactionsRoute,
+  FinanceIndexRoute: FinanceIndexRoute,
+}
+
+const FinanceRouteWithChildren =
+  FinanceRoute._addFileChildren(FinanceRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AnalyticsRoute: AnalyticsRoute,
+  ContentRoute: ContentRoute,
+  FinanceRoute: FinanceRouteWithChildren,
+  NotificationsRoute: NotificationsRoute,
+  PromotionsRoute: PromotionsRoute,
+  ReviewsRoute: ReviewsRoute,
+  ServicesRoute: ServicesRoute,
+  SettingsRoute: SettingsRoute,
+  BookingsIdRoute: BookingsIdRoute,
+  ComplaintsIdRoute: ComplaintsIdRoute,
+  OrganizationsIdRoute: OrganizationsIdRoute,
+  PetParentsIdRoute: PetParentsIdRoute,
+  ProvidersIdRoute: ProvidersIdRoute,
+  VerificationIdRoute: VerificationIdRoute,
+  BookingsIndexRoute: BookingsIndexRoute,
+  ComplaintsIndexRoute: ComplaintsIndexRoute,
+  OrganizationsIndexRoute: OrganizationsIndexRoute,
+  PetParentsIndexRoute: PetParentsIndexRoute,
+  ProvidersIndexRoute: ProvidersIndexRoute,
+  VerificationIndexRoute: VerificationIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
