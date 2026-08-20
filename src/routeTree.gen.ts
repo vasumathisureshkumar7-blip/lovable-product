@@ -10,7 +10,10 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AccessHistoryRouteImport } from './routes/access-history'
 import { Route as AnalyticsRouteImport } from './routes/analytics'
+import { Route as AuditLogsRouteImport } from './routes/audit-logs'
+import { Route as CommunicationRouteImport } from './routes/communication'
 import { Route as ContentRouteImport } from './routes/content'
 import { Route as FinanceRouteImport } from './routes/finance'
 import { Route as NotificationsRouteImport } from './routes/notifications'
@@ -38,6 +41,9 @@ import { Route as PetParentsIndexRouteImport } from './routes/pet-parents.index'
 import { Route as PetParentsIdRouteImport } from './routes/pet-parents.$id'
 import { Route as ProvidersIndexRouteImport } from './routes/providers.index'
 import { Route as ProvidersIdRouteImport } from './routes/providers.$id'
+import { Route as ServicesIndexRouteImport } from './routes/services.index'
+import { Route as ServicesCategoriesRouteImport } from './routes/services.categories'
+import { Route as ServicesRequestsRouteImport } from './routes/services.requests'
 import { Route as VerificationIndexRouteImport } from './routes/verification.index'
 import { Route as VerificationIdRouteImport } from './routes/verification.$id'
 
@@ -46,9 +52,24 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AccessHistoryRoute = AccessHistoryRouteImport.update({
+  id: '/access-history',
+  path: '/access-history',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AnalyticsRoute = AnalyticsRouteImport.update({
   id: '/analytics',
   path: '/analytics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuditLogsRoute = AuditLogsRouteImport.update({
+  id: '/audit-logs',
+  path: '/audit-logs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommunicationRoute = CommunicationRouteImport.update({
+  id: '/communication',
+  path: '/communication',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContentRoute = ContentRouteImport.update({
@@ -187,6 +208,21 @@ const ProvidersIdRoute = ProvidersIdRouteImport.update({
   path: '/providers/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesCategoriesRoute = ServicesCategoriesRouteImport.update({
+  id: '/categories',
+  path: '/categories',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesRequestsRoute = ServicesRequestsRouteImport.update({
+  id: '/requests',
+  path: '/requests',
+  getParentRoute: () => ServicesRoute,
+} as any)
 const VerificationIndexRoute = VerificationIndexRouteImport.update({
   id: '/verification/',
   path: '/verification/',
@@ -200,13 +236,16 @@ const VerificationIdRoute = VerificationIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/access-history': typeof AccessHistoryRoute
   '/analytics': typeof AnalyticsRoute
+  '/audit-logs': typeof AuditLogsRoute
+  '/communication': typeof CommunicationRoute
   '/content': typeof ContentRoute
   '/finance': typeof FinanceRouteWithChildren
   '/notifications': typeof NotificationsRoute
   '/promotions': typeof PromotionsRoute
   '/reviews': typeof ReviewsRoute
-  '/services': typeof ServicesRoute
+  '/services': typeof ServicesRouteWithChildren
   '/settings': typeof SettingsRoute
   '/bookings/$id': typeof BookingsIdRoute
   '/complaints/$id': typeof ComplaintsIdRoute
@@ -222,6 +261,8 @@ export interface FileRoutesByFullPath {
   '/organizations/$id': typeof OrganizationsIdRoute
   '/pet-parents/$id': typeof PetParentsIdRoute
   '/providers/$id': typeof ProvidersIdRoute
+  '/services/categories': typeof ServicesCategoriesRoute
+  '/services/requests': typeof ServicesRequestsRoute
   '/verification/$id': typeof VerificationIdRoute
   '/bookings/': typeof BookingsIndexRoute
   '/complaints/': typeof ComplaintsIndexRoute
@@ -229,16 +270,19 @@ export interface FileRoutesByFullPath {
   '/organizations/': typeof OrganizationsIndexRoute
   '/pet-parents/': typeof PetParentsIndexRoute
   '/providers/': typeof ProvidersIndexRoute
+  '/services/': typeof ServicesIndexRoute
   '/verification/': typeof VerificationIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/access-history': typeof AccessHistoryRoute
   '/analytics': typeof AnalyticsRoute
+  '/audit-logs': typeof AuditLogsRoute
+  '/communication': typeof CommunicationRoute
   '/content': typeof ContentRoute
   '/notifications': typeof NotificationsRoute
   '/promotions': typeof PromotionsRoute
   '/reviews': typeof ReviewsRoute
-  '/services': typeof ServicesRoute
   '/settings': typeof SettingsRoute
   '/bookings/$id': typeof BookingsIdRoute
   '/complaints/$id': typeof ComplaintsIdRoute
@@ -254,6 +298,8 @@ export interface FileRoutesByTo {
   '/organizations/$id': typeof OrganizationsIdRoute
   '/pet-parents/$id': typeof PetParentsIdRoute
   '/providers/$id': typeof ProvidersIdRoute
+  '/services/categories': typeof ServicesCategoriesRoute
+  '/services/requests': typeof ServicesRequestsRoute
   '/verification/$id': typeof VerificationIdRoute
   '/bookings': typeof BookingsIndexRoute
   '/complaints': typeof ComplaintsIndexRoute
@@ -261,18 +307,22 @@ export interface FileRoutesByTo {
   '/organizations': typeof OrganizationsIndexRoute
   '/pet-parents': typeof PetParentsIndexRoute
   '/providers': typeof ProvidersIndexRoute
+  '/services': typeof ServicesIndexRoute
   '/verification': typeof VerificationIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/access-history': typeof AccessHistoryRoute
   '/analytics': typeof AnalyticsRoute
+  '/audit-logs': typeof AuditLogsRoute
+  '/communication': typeof CommunicationRoute
   '/content': typeof ContentRoute
   '/finance': typeof FinanceRouteWithChildren
   '/notifications': typeof NotificationsRoute
   '/promotions': typeof PromotionsRoute
   '/reviews': typeof ReviewsRoute
-  '/services': typeof ServicesRoute
+  '/services': typeof ServicesRouteWithChildren
   '/settings': typeof SettingsRoute
   '/bookings/$id': typeof BookingsIdRoute
   '/complaints/$id': typeof ComplaintsIdRoute
@@ -288,6 +338,8 @@ export interface FileRoutesById {
   '/organizations/$id': typeof OrganizationsIdRoute
   '/pet-parents/$id': typeof PetParentsIdRoute
   '/providers/$id': typeof ProvidersIdRoute
+  '/services/categories': typeof ServicesCategoriesRoute
+  '/services/requests': typeof ServicesRequestsRoute
   '/verification/$id': typeof VerificationIdRoute
   '/bookings/': typeof BookingsIndexRoute
   '/complaints/': typeof ComplaintsIndexRoute
@@ -295,13 +347,17 @@ export interface FileRoutesById {
   '/organizations/': typeof OrganizationsIndexRoute
   '/pet-parents/': typeof PetParentsIndexRoute
   '/providers/': typeof ProvidersIndexRoute
+  '/services/': typeof ServicesIndexRoute
   '/verification/': typeof VerificationIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/access-history'
     | '/analytics'
+    | '/audit-logs'
+    | '/communication'
     | '/content'
     | '/finance'
     | '/notifications'
@@ -323,6 +379,8 @@ export interface FileRouteTypes {
     | '/organizations/$id'
     | '/pet-parents/$id'
     | '/providers/$id'
+    | '/services/categories'
+    | '/services/requests'
     | '/verification/$id'
     | '/bookings/'
     | '/complaints/'
@@ -330,16 +388,19 @@ export interface FileRouteTypes {
     | '/organizations/'
     | '/pet-parents/'
     | '/providers/'
+    | '/services/'
     | '/verification/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/access-history'
     | '/analytics'
+    | '/audit-logs'
+    | '/communication'
     | '/content'
     | '/notifications'
     | '/promotions'
     | '/reviews'
-    | '/services'
     | '/settings'
     | '/bookings/$id'
     | '/complaints/$id'
@@ -355,6 +416,8 @@ export interface FileRouteTypes {
     | '/organizations/$id'
     | '/pet-parents/$id'
     | '/providers/$id'
+    | '/services/categories'
+    | '/services/requests'
     | '/verification/$id'
     | '/bookings'
     | '/complaints'
@@ -362,11 +425,15 @@ export interface FileRouteTypes {
     | '/organizations'
     | '/pet-parents'
     | '/providers'
+    | '/services'
     | '/verification'
   id:
     | '__root__'
     | '/'
+    | '/access-history'
     | '/analytics'
+    | '/audit-logs'
+    | '/communication'
     | '/content'
     | '/finance'
     | '/notifications'
@@ -388,6 +455,8 @@ export interface FileRouteTypes {
     | '/organizations/$id'
     | '/pet-parents/$id'
     | '/providers/$id'
+    | '/services/categories'
+    | '/services/requests'
     | '/verification/$id'
     | '/bookings/'
     | '/complaints/'
@@ -395,18 +464,22 @@ export interface FileRouteTypes {
     | '/organizations/'
     | '/pet-parents/'
     | '/providers/'
+    | '/services/'
     | '/verification/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AccessHistoryRoute: typeof AccessHistoryRoute
   AnalyticsRoute: typeof AnalyticsRoute
+  AuditLogsRoute: typeof AuditLogsRoute
+  CommunicationRoute: typeof CommunicationRoute
   ContentRoute: typeof ContentRoute
   FinanceRoute: typeof FinanceRouteWithChildren
   NotificationsRoute: typeof NotificationsRoute
   PromotionsRoute: typeof PromotionsRoute
   ReviewsRoute: typeof ReviewsRoute
-  ServicesRoute: typeof ServicesRoute
+  ServicesRoute: typeof ServicesRouteWithChildren
   SettingsRoute: typeof SettingsRoute
   BookingsIdRoute: typeof BookingsIdRoute
   ComplaintsIdRoute: typeof ComplaintsIdRoute
@@ -431,11 +504,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/access-history': {
+      id: '/access-history'
+      path: '/access-history'
+      fullPath: '/access-history'
+      preLoaderRoute: typeof AccessHistoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/analytics': {
       id: '/analytics'
       path: '/analytics'
       fullPath: '/analytics'
       preLoaderRoute: typeof AnalyticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/audit-logs': {
+      id: '/audit-logs'
+      path: '/audit-logs'
+      fullPath: '/audit-logs'
+      preLoaderRoute: typeof AuditLogsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/communication': {
+      id: '/communication'
+      path: '/communication'
+      fullPath: '/communication'
+      preLoaderRoute: typeof CommunicationRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/content': {
@@ -627,6 +721,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProvidersIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/': {
+      id: '/services/'
+      path: '/'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/categories': {
+      id: '/services/categories'
+      path: '/categories'
+      fullPath: '/services/categories'
+      preLoaderRoute: typeof ServicesCategoriesRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/requests': {
+      id: '/services/requests'
+      path: '/requests'
+      fullPath: '/services/requests'
+      preLoaderRoute: typeof ServicesRequestsRouteImport
+      parentRoute: typeof ServicesRoute
+    }
     '/verification/': {
       id: '/verification/'
       path: '/verification'
@@ -673,15 +788,34 @@ const FinanceRouteChildren: FinanceRouteChildren = {
 const FinanceRouteWithChildren =
   FinanceRoute._addFileChildren(FinanceRouteChildren)
 
+interface ServicesRouteChildren {
+  ServicesCategoriesRoute: typeof ServicesCategoriesRoute
+  ServicesRequestsRoute: typeof ServicesRequestsRoute
+  ServicesIndexRoute: typeof ServicesIndexRoute
+}
+
+const ServicesRouteChildren: ServicesRouteChildren = {
+  ServicesCategoriesRoute: ServicesCategoriesRoute,
+  ServicesRequestsRoute: ServicesRequestsRoute,
+  ServicesIndexRoute: ServicesIndexRoute,
+}
+
+const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
+  ServicesRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AccessHistoryRoute: AccessHistoryRoute,
   AnalyticsRoute: AnalyticsRoute,
+  AuditLogsRoute: AuditLogsRoute,
+  CommunicationRoute: CommunicationRoute,
   ContentRoute: ContentRoute,
   FinanceRoute: FinanceRouteWithChildren,
   NotificationsRoute: NotificationsRoute,
   PromotionsRoute: PromotionsRoute,
   ReviewsRoute: ReviewsRoute,
-  ServicesRoute: ServicesRoute,
+  ServicesRoute: ServicesRouteWithChildren,
   SettingsRoute: SettingsRoute,
   BookingsIdRoute: BookingsIdRoute,
   ComplaintsIdRoute: ComplaintsIdRoute,
